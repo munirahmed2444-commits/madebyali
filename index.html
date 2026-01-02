@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali | Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #050816;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Abstract Background Effect */
+        .bg-hero-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .canvas-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #050816 80%);
+            z-index: -2;
+        }
+
+        /* Nav Glassmorphism */
+        .nav-blur {
+            background: rgba(5, 8, 22, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Line and Dot Styling */
+        .dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #915EFF;
+        }
+        .gradient-line {
+            width: 5px;
+            height: 300px;
+            background: linear-gradient(#915EFF, rgba(145, 94, 255, 0));
+        }
+
+        /* Smooth Scroll icon animation */
+        .scroller {
+            width: 30px;
+            height: 50px;
+            border: 3px solid #aaa;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            padding-top: 8px;
+        }
+        .scroller .ball {
+            width: 6px;
+            height: 6px;
+            background-color: #aaa;
+            border-radius: 50%;
+            animation: scroll-anim 1.5s infinite;
+        }
+        @keyframes scroll-anim {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(20px); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="canvas-container"></div>
+    <div class="bg-hero-pattern"></div>
+
+    <nav class="fixed top-0 w-full z-50 px-8 md:px-20 py-5 flex justify-between items-center nav-blur">
+        <a href="index.html" class="flex items-center gap-3">
+            <div class="bg-[#915EFF] rounded-full w-10 h-10 flex items-center justify-center font-bold text-white text-xl">
+                A
+            </div>
+            <p class="text-white text-[18px] font-bold cursor-pointer">
+                Ali <span class="text-gray-400 font-light ml-1">| Developer</span>
+            </p>
+        </a>
+
+        <ul class="flex items-center gap-8">
+            <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors font-medium">About</a></li>
+            <li><a href="work.html" class="text-gray-300 hover:text-white transition-colors font-medium">Work</a></li>
+            <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors font-medium">Contact</a></li>
+            <li>
+                <a href="https://github.com" target="_blank" 
+                   class="bg-white/10 border border-white/20 px-5 py-2 rounded-full text-white hover:bg-[#915EFF] transition-all duration-300">
+                   Source Code
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="relative w-full h-screen mx-auto flex flex-col items-center justify-center px-6 pt-20">
+        
+        <div class="max-w-7xl w-full flex flex-row items-start gap-6">
+            <div class="flex flex-col justify-center items-center mt-5">
+                <div class="dot"></div>
+                <div class="gradient-line"></div>
+            </div>
+
+            <div>
+                <h1 class="text-white font-black lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
+                    Hi, I'm <span class="text-[#915EFF]">Ali</span>
+                </h1>
+                <p class="text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2">
+                    I develop 3D visuals, user <br class="sm:block hidden" />
+                    interfaces and web applications
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-12 w-full max-w-5xl flex justify-center">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070" 
+                     alt="Setup" 
+                     class="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover max-h-[450px]">
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 w-full flex justify-center items-center">
+            <a href="#about">
+                <div class="scroller">
+                    <div class="ball"></div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
