@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | Ali Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        body { background-color: #050816; color: white; font-family: sans-serif; margin: 0; overflow-x: hidden; }
+        #canvas-bg { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.2; }
+        .nav { background: rgba(5, 8, 22, 0.95); border-bottom: 1px solid #1a1a1a; padding: 15px 40px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 140px 20px 60px 20px; }
+
+        /* GLOW SYSTEM FOR BUTTONS */
+        .nav-link { 
+            position: relative; 
+            transition: 0.4s ease; 
+            text-shadow: 0 0 0px rgba(145, 94, 255, 0); 
+        }
+        .nav-link:hover { 
+            color: #fff; 
+            text-shadow: 0 0 15px rgba(145, 94, 255, 0.8), 0 0 30px rgba(145, 94, 255, 0.4); 
+            transform: translateY(-1px);
+        }
+        
+        .contact-btn { 
+            border: 1px solid #915eff; 
+            transition: 0.4s ease; 
+            box-shadow: 0 0 0px rgba(145, 94, 255, 0); 
+        }
+        .contact-btn:hover { 
+            background: #915eff; 
+            color: white !important; 
+            box-shadow: 0 0 20px rgba(145, 94, 255, 0.6); 
+            transform: scale(1.05); 
+        }
+
+        /* LAYOUT STYLES */
+        .hero-title { font-size: 100px; font-weight: 900; line-height: 0.8; letter-spacing: -5px; margin-bottom: 20px; text-transform: uppercase; }
+        .outline-text { color: transparent; -webkit-text-stroke: 1px rgba(145, 94, 255, 0.5); }
+        .ghost-bg { position: absolute; font-size: 200px; font-weight: 900; color: rgba(255,255,255,0.02); top: -80px; left: -20px; z-index: -1; }
+        .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
+        .featured { grid-column: span 2; border: 2px solid #915eff; background: rgba(145, 94, 255, 0.05); }
+        .card { background: #100d25; border-radius: 15px; border: 1px solid #2e2e4d; padding: 20px; transition: 0.4s; }
+        .card:hover { border-color: #915eff; transform: translateY(-5px); }
+        .img-wrap { width: 100%; height: 240px; border-radius: 10px; overflow: hidden; margin-bottom: 15px; background: #000; }
+        .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .btn-main { display: inline-block; background: #915eff; color: white; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .bottom-cta { text-align: center; padding: 120px 20px; background: linear-gradient(to top, #0c0c28, #050816); border-top: 1px solid #1a1a1a; }
+        
+        @media (max-width: 768px) { .hero-title { font-size: 60px; } .work-grid { grid-template-columns: 1fr; } .featured { grid-column: span 1; } }
+    </style>
+</head>
+<body>
+
+<canvas id="canvas-bg"></canvas>
+
+<nav class="nav fixed top-0 w-full z-50 flex justify-between items-center">
+    <div style="font-weight: 900; font-size: 22px; letter-spacing: 1px;">ALI <span style="color: #915eff;">PORTFOLIO</span></div>
+    <div style="display: flex; align-items: center; gap: 25px;">
+        <a href="index.html" class="nav-link" style="color: #aaa; text-decoration: none; font-weight: bold; font-size: 14px;">HOME</a>
+        <a href="mailto:your-email@example.com" class="contact-btn" style="color: #915eff; padding: 7px 18px; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 14px;">CONTACT</a>
+        <a href="work.html" class="nav-link" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; border-bottom: 2px solid #915eff;">WORK</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div style="position: relative; margin-bottom: 100px;">
+        <div class="ghost-bg">2026</div>
+        <h1 class="hero-title">CREATIVE<br><span class="outline-text">ARCHIVE.</span></h1>
+        <p style="color: #888; font-size: 18px; max-width: 450px; line-height: 1.6; border-left: 3px solid #915eff; padding-left: 20px; margin-top: 30px;">
+            A curated selection of digital products, automotive platforms, and logical business solutions.
+        </p>
+    </div>
+
+    <div class="work-grid">
+        <div class="card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800" alt="Repair"></div>
+            <h2 style="font-size: 20px; font-weight: bold;">High Desert Repair</h2>
+            <p style="color: #aaa; font-size: 14px; margin: 10px 0;">Strategic service landing page for professional home maintenance.</p>
+            <a href="https://munirahmed2444-commits.github.io/high-desert-appliance-repair/" style="color: #915eff; font-weight: bold; text-decoration: none;">Launch Site -></a>
+        </div>
+
+        <div class="card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800" alt="Car Detail"></div>
+            <h2 style="font-size: 20px; font-weight: bold;">Pakistan Auto Detailing</h2>
+            <p style="color: #aaa; font-size: 14px; margin: 10px 0;">National portal for ceramic coating and paint protection specialists.</p>
+            <a href="https://munirahmed2444-commits.github.io/Pakistan-Auto-Detailing/" style="color: #915eff; font-weight: bold; text-decoration: none;">Launch Site -></a>
+        </div>
+
+        <div class="card featured">
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1.2; min-width: 300px;">
+                    <div class="img-wrap" style="height: 380px; margin-bottom: 0;"><img src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800" alt="Auto PK"></div>
+                </div>
+                <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column; justify-content: center; padding: 20px;">
+                    <span style="color: #915eff; font-size: 11px; font-weight: bold; letter-spacing: 2px;">PRIMARY SHOWCASE</span>
+                    <h2 style="font-size: 36px; font-weight: bold; margin: 10px 0;">Auto Detailing PK</h2>
+                    <p style="color: #ccc; line-height: 1.6; margin-bottom: 25px;">The crown jewel of my automotive portfolio. High-end UI meets complex service architecture.</p>
+                    <a href="https://munirahmed2444-commits.github.io/Auto-Detailing-PK/" class="btn-main" style="width: fit-content;">VISIT PROJECT</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Business Dash"></div>
+            <h2 style="font-size: 20px; font-weight: bold;">Bizsharp Sales Scripts</h2>
+            <p style="color: #aaa; font-size: 14px; margin: 10px 0;">Advanced logic tool for managing sales dialogue and business communication.</p>
+            <a href="https://munirahmed2444-commits.github.io/BIZSHARP-SALESSCRIPTS-/" style="color: #915eff; font-weight: bold; text-decoration: none;">Launch Site -></a>
+        </div>
+
+        <div class="card">
+            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800" alt="Flash Car"></div>
+            <h2 style="font-size: 20px; font-weight: bold;">Auto Flash</h2>
+            <p style="color: #aaa; font-size: 14px; margin: 10px 0;">Speed-optimized scheduling app for lightning-fast automotive bookings.</p>
+            <a href="https://munirahmed2444-commits.github.io/Auto-Flash/" style="color: #915eff; font-weight: bold; text-decoration: none;">Launch Site -></a>
+        </div>
+    </div>
+</div>
+
+<section class="bottom-cta">
+    <h2 style="font-size: 48px; font-weight: 900; margin-bottom: 15px;">Ready to Scale?</h2>
+    <p style="color: #aaa; margin-bottom: 45px; font-size: 20px; max-width: 600px; margin-left: auto; margin-right: auto;">Let's turn your vision into a high-performance digital reality.</p>
+    <a href="mailto:your-email@example.com" class="btn-main contact-btn" style="font-size: 22px; padding: 18px 50px; border-radius: 50px;">GET YOUR WEB LIVE</a>
+</section>
+
+<script>
+    const canvas = document.getElementById('canvas-bg');
+    const renderer = new THREE.WebGLRenderer({canvas, alpha: true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 25;
+    const geometry = new THREE.IcosahedronGeometry(10, 1);
+    const material = new THREE.MeshBasicMaterial({color: 0x915eff, wireframe: true, transparent: true, opacity: 0.1});
+    const shape = new THREE.Mesh(geometry, material);
+    scene.add(shape);
+    function animate() {
+        requestAnimationFrame(animate);
+        shape.rotation.y += 0.002;
+        renderer.render(scene, camera);
+    }
+    animate();
+</script>
+</body>
+</html>
