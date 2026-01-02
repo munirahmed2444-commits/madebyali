@@ -5,142 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ali | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #050816;
-            color: white;
-            margin: 0;
-            overflow-x: hidden;
-        }
+        body { background-color: #050816; color: white; font-family: 'Poppins', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; opacity: 0.4; }
+        .nav-blur { background: rgba(5, 8, 22, 0.85); backdrop-filter: blur(15px); }
 
-        /* Abstract Background Effect */
-        .bg-hero-pattern {
-            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
-            position: absolute;
-            inset: 0;
-            z-index: -1;
-            opacity: 0.1;
-        }
+        /* The Dot & Line from your Image */
+        .purple-dot { width: 20px; height: 20px; background: #915eff; border-radius: 50%; box-shadow: 0 0 25px #915eff; }
+        .purple-line { width: 4px; height: 160px; background: linear-gradient(#915eff, transparent); }
 
-        .canvas-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, #050816 80%);
-            z-index: -2;
+        /* PC Case Hardware Glow */
+        .pc-tower {
+            width: 170px; height: 320px;
+            background: linear-gradient(165deg, #0a0a0c, #000);
+            border: 1px solid rgba(145, 94, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
         }
+        .rgb-fan {
+            width: 65px; height: 65px; border-radius: 50%;
+            border: 3px solid #915eff;
+            box-shadow: 0 0 20px #915eff, inset 0 0 15px #915eff;
+            animation: fan-glow 4s infinite alternate;
+        }
+        @keyframes fan-glow { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(180deg); } }
 
-        /* Nav Glassmorphism */
-        .nav-blur {
-            background: rgba(5, 8, 22, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
+        /* Monitor / Typewriter */
+        .monitor-frame { width: 580px; height: 340px; background: #000; border: 12px solid #1a1a1a; border-radius: 15px; }
+        .cursor { display: inline-block; width: 8px; height: 18px; background: #915eff; margin-left: 4px; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
 
-        /* Line and Dot Styling */
-        .dot {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #915EFF;
-        }
-        .gradient-line {
-            width: 5px;
-            height: 300px;
-            background: linear-gradient(#915EFF, rgba(145, 94, 255, 0));
-        }
-
-        /* Smooth Scroll icon animation */
-        .scroller {
-            width: 30px;
-            height: 50px;
-            border: 3px solid #aaa;
+        /* Glass Cards for Experience */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            display: flex;
-            justify-content: center;
-            padding-top: 8px;
-        }
-        .scroller .ball {
-            width: 6px;
-            height: 6px;
-            background-color: #aaa;
-            border-radius: 50%;
-            animation: scroll-anim 1.5s infinite;
-        }
-        @keyframes scroll-anim {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(20px); opacity: 0; }
+            padding: 40px;
         }
     </style>
 </head>
 <body>
 
-    <div class="canvas-container"></div>
-    <div class="bg-hero-pattern"></div>
+    <div id="canvas-container"></div>
 
-    <nav class="fixed top-0 w-full z-50 px-8 md:px-20 py-5 flex justify-between items-center nav-blur">
-        <a href="index.html" class="flex items-center gap-3">
-            <div class="bg-[#915EFF] rounded-full w-10 h-10 flex items-center justify-center font-bold text-white text-xl">
-                A
-            </div>
-            <p class="text-white text-[18px] font-bold cursor-pointer">
-                Ali <span class="text-gray-400 font-light ml-1">| Developer</span>
-            </p>
-        </a>
-
-        <ul class="flex items-center gap-8">
-            <li><a href="about.html" class="text-gray-300 hover:text-white transition-colors font-medium">About</a></li>
-            <li><a href="work.html" class="text-gray-300 hover:text-white transition-colors font-medium">Work</a></li>
-            <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors font-medium">Contact</a></li>
-            <li>
-                <a href="https://github.com" target="_blank" 
-                   class="bg-white/10 border border-white/20 px-5 py-2 rounded-full text-white hover:bg-[#915EFF] transition-all duration-300">
-                   Source Code
-                </a>
-            </li>
-        </ul>
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-10 md:px-24 py-6 nav-blur">
+        <div class="flex items-center gap-3">
+            <div class="bg-[#915eff] w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-lg text-xl">A</div>
+            <span class="text-2xl font-bold tracking-tight text-white">Ali <span class="text-gray-500 font-light">| Developer</span></span>
+        </div>
+        <div class="hidden md:flex gap-10">
+            <a href="#about" class="text-gray-300 hover:text-white transition font-medium">About</a>
+            <a href="#work" class="text-gray-300 hover:text-white transition font-medium">Work</a>
+            <a href="contact.html" class="text-gray-300 hover:text-white transition font-medium">Contact</a>
+            <a href="#" class="bg-white/5 border border-white/10 px-6 py-2 rounded-full hover:bg-[#915eff] transition-all">Source Code</a>
+        </div>
     </nav>
 
-    <section class="relative w-full h-screen mx-auto flex flex-col items-center justify-center px-6 pt-20">
-        
-        <div class="max-w-7xl w-full flex flex-row items-start gap-6">
-            <div class="flex flex-col justify-center items-center mt-5">
-                <div class="dot"></div>
-                <div class="gradient-line"></div>
+    <section class="relative pt-48 flex flex-col items-center min-h-screen">
+        <div class="w-full max-w-7xl px-12 md:px-24 flex gap-10">
+            <div class="flex flex-col items-center mt-5">
+                <div class="purple-dot"></div>
+                <div class="purple-line"></div>
             </div>
-
             <div>
-                <h1 class="text-white font-black lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] mt-2">
-                    Hi, I'm <span class="text-[#915EFF]">Ali</span>
-                </h1>
-                <p class="text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] lg:leading-[40px] mt-2">
-                    I develop 3D visuals, user <br class="sm:block hidden" />
-                    interfaces and web applications
+                <h1 class="text-7xl md:text-9xl font-black tracking-tighter">Hi, I'm <span class="text-[#915eff]">Ali</span></h1>
+                <p class="text-2xl md:text-4xl text-gray-400 mt-6 max-w-3xl font-medium leading-tight">
+                    I develop 3D visuals, user interfaces <br> and web applications
                 </p>
             </div>
         </div>
 
-        <div class="mt-12 w-full max-w-5xl flex justify-center">
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-purple-600 rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070" 
-                     alt="Setup" 
-                     class="relative rounded-2xl shadow-2xl border border-white/10 w-full object-cover max-h-[450px]">
+        <div class="mt-20 relative flex flex-col items-center">
+            <div class="flex items-end gap-12 relative z-10">
+                <div class="monitor-frame overflow-hidden">
+                    <div class="bg-[#1e1e1e] h-full p-8 font-mono text-[13px] leading-relaxed text-blue-300" id="monitor-content"></div>
+                </div>
+                <div class="pc-tower flex flex-col items-center justify-center gap-10">
+                    <div class="rgb-fan"></div>
+                    <div class="rgb-fan"></div>
+                </div>
+            </div>
+            <div class="w-[920px] h-4 bg-[#0a0a0a] rounded shadow-2xl"></div>
+            <div class="flex gap-40 -mt-2">
+                <div class="w-64 h-3 bg-zinc-800 rounded border-b-2 border-[#915eff]/50"></div>
+                <div class="w-10 h-6 bg-red-600 rounded-full shadow-[0_0_25px_red]"></div>
             </div>
         </div>
 
-        <div class="absolute bottom-10 w-full flex justify-center items-center">
-            <a href="#about">
-                <div class="scroller">
-                    <div class="ball"></div>
-                </div>
-            </a>
+        <div class="mt-20 mb-10">
+            <div class="w-8 h-12 border-2 border-gray-600 rounded-full flex justify-center p-2">
+                <div class="w-1.5 h-3 bg-[#915eff] rounded-full animate-bounce"></div>
+            </div>
         </div>
     </section>
 
+    <section id="about" class="max-w-7xl mx-auto px-10 md:px-24 py-32">
+        <div class="glass-card">
+            <div class="flex flex-col md:flex-row gap-16 items-start">
+                <div class="flex-1">
+                    <h2 class="text-[#915eff] uppercase tracking-widest font-bold mb-4">About Me</h2>
+                    <h3 class="text-5xl font-black mb-8">Ali from Multan.</h3>
+                    <p class="text-gray-400 text-xl leading-relaxed mb-10">
+                        I am a professional developer and designer currently operating from <span class="text-white font-bold">Multan, Pakistan</span>. 
+                        I specialize in creating immersive 3D web experiences and high-performance interfaces. 
+                        My goal is to blend art with technology.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-5xl font-black text-white">50+</p>
+                            <p class="text-[#915eff] font-bold mt-2">Satisfied Clients</p>
+                        </div>
+                        <div>
+                            <p class="text-5xl font-black text-white">5+</p>
+                            <p class="text-[#915eff] font-bold mt-2">Years of Exp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex-1 space-y-10" id="work">
+                    <h2 class="text-white text-2xl font-bold border-b border-white/10 pb-4">Work Experience</h2>
+                    <div class="relative pl-8 border-l-2 border-[#915eff]/30">
+                        <div class="absolute -left-[11px] top-0 w-5 h-5 bg-[#915eff] rounded-full"></div>
+                        <h4 class="text-xl font-bold">Full Stack Developer</h4>
+                        <p class="text-gray-500 mb-2">Multan Tech Solutions | 2022 - Present</p>
+                        <p class="text-gray-400">Leading 3D web projects and managing client deliverables across global markets.</p>
+                    </div>
+                    <div class="relative pl-8 border-l-2 border-[#915eff]/30">
+                        <div class="absolute -left-[11px] top-0 w-5 h-5 bg-zinc-700 rounded-full"></div>
+                        <h4 class="text-xl font-bold">UI/UX Designer</h4>
+                        <p class="text-gray-500 mb-2">Freelance | 2019 - 2022</p>
+                        <p class="text-gray-400">Created stunning visuals for over 50+ satisfied clients worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 1. MONITOR TYPEWRITER
+        const codeText = `/**\n * ALI PORTFOLIO\n * FROM: Multan, PK\n */\n\nconst dev = {\n  name: "Ali",\n  specialty: "3D Visuals",\n  status: "Available",\n  clients: 50\n};\n\nfunction init() {\n  console.log("Ready...");\n}\n\ninit();`;
+        const monitor = document.getElementById('monitor-content');
+        let i = 0;
+        function typeCode() {
+            if (i < codeText.length) {
+                monitor.innerHTML = codeText.substring(0, i) + '<span class="cursor"></span>';
+                i++;
+                setTimeout(typeCode, 25);
+            } else {
+                monitor.innerHTML = codeText + '<span class="cursor"></span>';
+            }
+        }
+        window.onload = typeCode;
+
+        // 2. THREE.JS 3D BACKGROUND
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+        const geometry = new THREE.IcosahedronGeometry(15, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.1 });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.y += 0.002;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
 </body>
 </html>
