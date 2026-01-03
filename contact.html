@@ -3,41 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali | Portfolio</title>
+    <title>Contact | Ali</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050816; color: white; font-family: 'Poppins', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        body { background-color: #050816; color: white; font-family: 'Poppins', sans-serif; margin: 0; overflow: hidden; }
         #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
         .nav-blur { background: rgba(5, 8, 22, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-
-        /* NAV GLOW */
-        .nav-link { transition: 0.4s ease; }
-        .nav-link:hover { color: #fff !important; text-shadow: 0 0 15px rgba(145, 94, 255, 0.8); }
-        .live-btn { background: #915eff; transition: 0.4s ease; box-shadow: 0 0 15px rgba(145, 94, 255, 0.4); }
-        .live-btn:hover { box-shadow: 0 0 30px rgba(145, 94, 255, 0.8); transform: scale(1.05); }
-
-        /* PC & MONITOR HARDWARE */
-        .pc-tower { width: 170px; height: 320px; background: linear-gradient(165deg, #0a0a0c, #000); border: 1px solid rgba(145, 94, 255, 0.2); border-radius: 10px; box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); transition: 0.3s; }
-        .rgb-fan { width: 65px; height: 65px; border-radius: 50%; border: 3px solid #915eff; box-shadow: 0 0 20px #915eff, inset 0 0 15px #915eff; animation: fan-glow 4s infinite alternate; transition: 0.5s; }
-        .pc-tower:hover .rgb-fan { transform: rotate(360deg); border-color: #fff; box-shadow: 0 0 30px #915eff; }
-        @keyframes fan-glow { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(90deg); } }
-        .monitor-frame { width: 580px; height: 340px; background: #000; border: 12px solid #1a1a1a; border-radius: 15px; overflow: hidden; }
-        .cursor { display: inline-block; width: 8px; height: 18px; background: #915eff; margin-left: 4px; animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
-
-        /* CARDS & STATS */
-        .intro-card { background: #151030; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 40px 20px; text-align: center; transition: 0.3s; box-shadow: 0 35px 120px -10px #211e35; }
-        .intro-card:hover { transform: translateY(-10px); border-color: #915eff; }
-        .stat-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(145, 94, 255, 0.2); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.4s ease; }
-        .stat-box:hover { border-color: #915eff; background: rgba(145, 94, 255, 0.05); }
-
-        .purple-dot { width: 20px; height: 20px; background: #915eff; border-radius: 50%; box-shadow: 0 0 25px #915eff; }
-        .purple-line { width: 4px; height: 160px; background: linear-gradient(#915eff, transparent); }
+        .contact-card { background: #151030; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 50px 40px; box-shadow: 0 35px 120px -10px #211e35; width: 100%; max-width: 500px; }
+        .contact-btn { display: flex; align-items: center; justify-content: center; gap: 15px; width: 100%; padding: 20px; border-radius: 12px; font-weight: 900; color: white; transition: 0.3s; margin-bottom: 20px; font-size: 1.1rem; }
+        .contact-btn:hover { transform: translateY(-5px); filter: brightness(1.1); }
     </style>
 </head>
-<body>
+<body class="flex items-center justify-center min-h-screen">
 
     <div id="canvas-container"></div>
 
@@ -47,139 +26,51 @@
             <span class="text-xl font-bold text-white">Ali <span class="text-gray-500 font-light">| Dev</span></span>
         </div>
         <div class="flex items-center gap-8">
-            <a href="index.html" class="nav-link text-white font-bold border-b-2 border-[#915eff]">Home</a>
-            <a href="#about" class="nav-link text-gray-400 font-medium">About</a>
-            <a href="work.html" class="nav-link text-gray-400 font-medium">Work</a>
-            <a href="contact.html" class="nav-link text-gray-400 font-medium">Contact</a>
-            <a href="https://wa.me/923037403568" target="_blank" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs tracking-widest uppercase">Go Live</a>
+            <a href="index.html" class="nav-link text-gray-400 font-medium hover:text-white">Home</a>
+            <a href="work.html" class="nav-link text-gray-400 font-medium hover:text-white">Work</a>
+            <a href="contact.html" class="text-white font-bold border-b-2 border-[#915eff]">Contact</a>
+            <a href="#" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs tracking-widest uppercase bg-[#915eff]">Go Live</a>
         </div>
     </nav>
 
-    <section class="relative pt-48 flex flex-col items-center">
-        <div class="w-full max-w-7xl px-12 md:px-24 flex gap-10">
-            <div class="flex flex-col items-center mt-5">
-                <div class="purple-dot"></div>
-                <div class="purple-line"></div>
-            </div>
-            <div>
-                <h1 class="text-7xl md:text-9xl font-black tracking-tighter">Hi, I'm <span class="text-[#915eff]">Ali</span></h1>
-                <p class="text-2xl md:text-4xl text-gray-400 mt-6 max-w-3xl font-medium leading-tight">
-                    I develop 3D visuals, user interfaces <br> and web applications
-                </p>
-            </div>
+    <div class="contact-card text-center">
+        <p class="text-gray-400 uppercase tracking-widest text-xs font-bold mb-2">Available for Projects</p>
+        <h2 class="text-6xl font-black mb-12 text-white">Let's Connect.</h2>
+        
+        <div class="flex flex-col">
+            <a href="https://wa.me/923037403568" target="_blank" class="contact-btn bg-[#25D366]">
+                WHATSAPP CHAT
+            </a>
+            <a href="mailto:munir.ahmed2444@gmail.com" class="contact-btn bg-[#915eff]">
+                SEND EMAIL
+            </a>
         </div>
-
-        <div class="mt-20 relative flex flex-col items-center">
-            <div class="flex items-end gap-12 relative z-10">
-                <div class="monitor-frame">
-                    <div class="bg-[#1e1e1e] h-full p-8 font-mono text-[13px] leading-relaxed text-blue-300" id="monitor-content"></div>
-                </div>
-                <div class="pc-tower flex flex-col items-center justify-center gap-10">
-                    <div class="rgb-fan"></div>
-                    <div class="rgb-fan"></div>
-                </div>
-            </div>
-            <div class="w-[920px] h-4 bg-[#0a0a0a] rounded shadow-2xl"></div>
-        </div>
-    </section>
-
-    <section id="about" class="max-w-7xl mx-auto px-10 md:px-24 py-32">
-        <div class="mb-16">
-            <p class="text-gray-400 uppercase tracking-widest text-sm font-bold">Introduction</p>
-            <h2 class="text-7xl font-black mb-10">Overview.</h2>
-            <p class="text-gray-400 text-xl leading-relaxed max-w-4xl">
-                I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
-            <div class="intro-card">
-                <img src="https://raw.githubusercontent.com/adrianhajdin/project_3D_developer_portfolio/main/src/assets/web.png" class="w-16 h-16 mx-auto mb-4" alt="web">
-                <h3 class="text-xl font-bold">Web Developer<br><span class="text-[#915eff] text-sm">(FULL STACK)</span></h3>
-            </div>
-            <div class="intro-card">
-                <img src="https://raw.githubusercontent.com/adrianhajdin/project_3D_developer_portfolio/main/src/assets/mobile.png" class="w-16 h-16 mx-auto mb-4" alt="mobile">
-                <h3 class="text-xl font-bold">React Native<br>Developer</h3>
-            </div>
-            <div class="intro-card">
-                <img src="https://raw.githubusercontent.com/adrianhajdin/project_3D_developer_portfolio/main/src/assets/backend.png" class="w-16 h-16 mx-auto mb-4" alt="backend">
-                <h3 class="text-xl font-bold">Backend<br>Developer</h3>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="stat-box group">
-                <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">50+</p>
-                <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Satisfied Clients</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
-                    <p>• Successfully delivered high-performance web apps</p>
-                    <p>• 100% project completion rate worldwide</p>
-                    <p>• Specialized in modern business solutions</p>
-                </div>
-            </div>
-            <div class="stat-box group">
-                <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">5+</p>
-                <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Years of Experience</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
-                    <p>• Expertise in modern 3D UI/UX architectures</p>
-                    <p>• Advanced proficiency in Full-Stack logic</p>
-                    <p>• Bridging the gap between design and complex code</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <p class="text-gray-500 text-sm mt-10">Multan, Pakistan</p>
+    </div>
 
     <script>
-        // TYPEWRITER
-        const codeText = `/**\n * ALI PORTFOLIO\n * STATUS: Online\n */\n\nconst dev = {\n  name: "Ali",\n  specialty: "Full Stack",\n  exp: "5+ Years",\n  clients: 50,\n  email: "munir.ahmed2444@gmail.com"\n};\n\nfunction init() {\n  console.log("Ready...");\n}\n\ninit();`;
-        const monitor = document.getElementById('monitor-content');
-        let i = 0;
-        function typeCode() {
-            if (i < codeText.length) {
-                monitor.innerHTML = codeText.substring(0, i) + '<span class="cursor"></span>';
-                i++;
-                setTimeout(typeCode, 25);
-            }
-        }
-        window.onload = typeCode;
-
-        // THREE.JS UPGRADED BACKGROUND
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-        const globeGroup = new THREE.Group();
-        const globe = new THREE.Mesh(
-            new THREE.SphereGeometry(12, 32, 32),
-            new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.2 })
-        );
-        globeGroup.add(globe);
-        scene.add(globeGroup);
-        globeGroup.position.set(20, 0, 0);
+        const globe = new THREE.Mesh(new THREE.SphereGeometry(15, 32, 32), new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.15 }));
+        scene.add(globe);
 
         const particlesGeo = new THREE.BufferGeometry();
-        const posArray = new Float32Array(1500 * 3);
-        for(let i=0; i<4500; i++) posArray[i] = (Math.random() - 0.5) * 100;
+        const posArray = new Float32Array(1000 * 3);
+        for(let i=0; i<3000; i++) posArray[i] = (Math.random() - 0.5) * 120;
         particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const particlesMesh = new THREE.Points(particlesGeo, new THREE.PointsMaterial({ size: 0.05, color: 0x915eff }));
-        scene.add(particlesMesh);
+        scene.add(new THREE.Points(particlesGeo, new THREE.PointsMaterial({ size: 0.08, color: 0x915eff })));
 
-        camera.position.z = 40;
+        camera.position.z = 45;
         function animate() {
             requestAnimationFrame(animate);
-            globeGroup.rotation.y += 0.003;
-            particlesMesh.rotation.y += 0.001;
+            globe.rotation.y += 0.002;
             renderer.render(scene, camera);
         }
         animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
     </script>
 </body>
 </html>
