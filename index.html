@@ -11,14 +11,16 @@
         body { background-color: #050816; color: white; font-family: 'Poppins', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
         #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
         .nav-blur { background: rgba(5, 8, 22, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-
-        /* NAV GLOW */
         .nav-link { transition: 0.4s ease; }
         .nav-link:hover { color: #fff !important; text-shadow: 0 0 15px rgba(145, 94, 255, 0.8); }
-        .live-btn { background: #915eff; transition: 0.4s ease; box-shadow: 0 0 15px rgba(145, 94, 255, 0.4); }
+        .live-btn { background: #915eff; transition: 0.4s ease; box-shadow: 0 0 15px rgba(145, 94, 255, 0.4); text-decoration: none; }
         .live-btn:hover { box-shadow: 0 0 30px rgba(145, 94, 255, 0.8); transform: scale(1.05); cursor: pointer; }
-
-        /* PC & MONITOR HARDWARE */
+        .hero-live-btn { animation: pulse-glow 2s infinite; display: inline-block; }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(145, 94, 255, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(145, 94, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(145, 94, 255, 0); }
+        }
         .pc-tower { width: 170px; height: 320px; background: linear-gradient(165deg, #0a0a0c, #000); border: 1px solid rgba(145, 94, 255, 0.2); border-radius: 10px; box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); transition: 0.3s; }
         .rgb-fan { width: 65px; height: 65px; border-radius: 50%; border: 3px solid #915eff; box-shadow: 0 0 20px #915eff, inset 0 0 15px #915eff; animation: fan-glow 4s infinite alternate; transition: 0.5s; }
         .pc-tower:hover .rgb-fan { transform: rotate(360deg); border-color: #fff; box-shadow: 0 0 30px #915eff; }
@@ -26,21 +28,16 @@
         .monitor-frame { width: 580px; height: 340px; background: #000; border: 12px solid #1a1a1a; border-radius: 15px; overflow: hidden; }
         .cursor { display: inline-block; width: 8px; height: 18px; background: #915eff; margin-left: 4px; animation: blink 1s infinite; }
         @keyframes blink { 50% { opacity: 0; } }
-
-        /* CARDS & STATS */
         .intro-card { background: #151030; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 40px 20px; text-align: center; transition: 0.3s; box-shadow: 0 35px 120px -10px #211e35; }
         .intro-card:hover { transform: translateY(-10px); border-color: #915eff; }
         .stat-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(145, 94, 255, 0.2); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.4s ease; }
         .stat-box:hover { border-color: #915eff; background: rgba(145, 94, 255, 0.05); }
-
         .purple-dot { width: 20px; height: 20px; background: #915eff; border-radius: 50%; box-shadow: 0 0 25px #915eff; }
         .purple-line { width: 4px; height: 160px; background: linear-gradient(#915eff, transparent); }
     </style>
 </head>
 <body>
-
     <div id="canvas-container"></div>
-
     <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 nav-blur">
         <div class="flex items-center gap-3">
             <div class="bg-[#915eff] w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-lg text-xl">A</div>
@@ -51,7 +48,7 @@
             <a href="#about" class="nav-link text-gray-400 font-medium">About</a>
             <a href="work.html" class="nav-link text-gray-400 font-medium">Work</a>
             <a href="contact.html" class="nav-link text-gray-400 font-medium">Contact</a>
-            <a href="#" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs tracking-widest uppercase">Go Live</a>
+            <a href="golive.html" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs tracking-widest uppercase">Go Live</a>
         </div>
     </nav>
 
@@ -66,6 +63,9 @@
                 <p class="text-2xl md:text-4xl text-gray-400 mt-6 max-w-3xl font-medium leading-tight">
                     I develop 3D visuals, user interfaces <br> and web applications
                 </p>
+                <div class="mt-12">
+                    <a href="golive.html" class="live-btn hero-live-btn px-10 py-5 rounded-2xl text-white font-black text-lg tracking-widest uppercase">🚀 Start Project</a>
+                </div>
             </div>
         </div>
 
@@ -108,19 +108,19 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="stat-box group">
+            <div class="stat-box group text-left">
                 <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">50+</p>
                 <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Satisfied Clients</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6 text-left">
+                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
                     <p>• Successfully delivered high-performance web apps</p>
                     <p>• 100% project completion rate worldwide</p>
                     <p>• Specialized in modern business solutions</p>
                 </div>
             </div>
-            <div class="stat-box group">
+            <div class="stat-box group text-left">
                 <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">5+</p>
                 <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Years of Experience</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6 text-left">
+                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
                     <p>• Expertise in modern 3D UI/UX architectures</p>
                     <p>• Advanced proficiency in Full-Stack logic</p>
                     <p>• Bridging the gap between design and complex code</p>
@@ -130,8 +130,7 @@
     </section>
 
     <script>
-        // TYPEWRITER
-        const codeText = `/**\n * ALI PORTFOLIO\n * STATUS: Online\n */\n\nconst dev = {\n  name: "Ali",\n  specialty: "Full Stack",\n  exp: "5+ Years",\n  clients: 50,\n  location: "Multan"\n};\n\nfunction init() {\n  console.log("Welcome to my digital workspace...");\n}\n\ninit();`;
+        const codeText = "/**\n * ALI PORTFOLIO\n * STATUS: Online\n */\n\nconst dev = {\n  name: 'Ali',\n  specialty: 'Full Stack',\n  exp: '5+ Years',\n  clients: 50,\n  location: 'Multan'\n};\n\nfunction init() {\n  console.log('Welcome to my digital workspace...');\n}\n\ninit();";
         const monitor = document.getElementById('monitor-content');
         let i = 0;
         function typeCode() {
@@ -143,7 +142,6 @@
         }
         window.onload = typeCode;
 
-        // THREE.JS BACKGROUND
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -174,12 +172,6 @@
             renderer.render(scene, camera);
         }
         animate();
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
     </script>
 </body>
 </html>
