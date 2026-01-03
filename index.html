@@ -16,7 +16,7 @@
         .nav-link { transition: 0.4s ease; }
         .nav-link:hover { color: #fff !important; text-shadow: 0 0 15px rgba(145, 94, 255, 0.8); }
         .live-btn { background: #915eff; transition: 0.4s ease; box-shadow: 0 0 15px rgba(145, 94, 255, 0.4); }
-        .live-btn:hover { box-shadow: 0 0 30px rgba(145, 94, 255, 0.8); transform: scale(1.05); }
+        .live-btn:hover { box-shadow: 0 0 30px rgba(145, 94, 255, 0.8); transform: scale(1.05); cursor: pointer; }
 
         /* PC & MONITOR HARDWARE */
         .pc-tower { width: 170px; height: 320px; background: linear-gradient(165deg, #0a0a0c, #000); border: 1px solid rgba(145, 94, 255, 0.2); border-radius: 10px; box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); transition: 0.3s; }
@@ -32,10 +32,6 @@
         .intro-card:hover { transform: translateY(-10px); border-color: #915eff; }
         .stat-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(145, 94, 255, 0.2); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.4s ease; }
         .stat-box:hover { border-color: #915eff; background: rgba(145, 94, 255, 0.05); }
-
-        /* CONTACT FORM STYLE */
-        .glass-input { background: #151030; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px; width: 100%; outline: none; transition: 0.3s; }
-        .glass-input:focus { border-color: #915eff; box-shadow: 0 0 10px rgba(145, 94, 255, 0.3); }
 
         .purple-dot { width: 20px; height: 20px; background: #915eff; border-radius: 50%; box-shadow: 0 0 25px #915eff; }
         .purple-line { width: 4px; height: 160px; background: linear-gradient(#915eff, transparent); }
@@ -54,8 +50,8 @@
             <a href="index.html" class="nav-link text-white font-bold border-b-2 border-[#915eff]">Home</a>
             <a href="#about" class="nav-link text-gray-400 font-medium">About</a>
             <a href="work.html" class="nav-link text-gray-400 font-medium">Work</a>
-            <a href="#contact" class="nav-link text-gray-400 font-medium">Contact</a>
-            <a href="mailto:your-email@example.com" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs tracking-widest">GO LIVE</a>
+            <a href="contact.html" class="nav-link text-gray-400 font-medium">Contact</a>
+            <a href="#" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs tracking-widest uppercase">Go Live</a>
         </div>
     </nav>
 
@@ -76,7 +72,7 @@
         <div class="mt-20 relative flex flex-col items-center">
             <div class="flex items-end gap-12 relative z-10">
                 <div class="monitor-frame">
-                    <div class="bg-[#1e1e1e] h-full p-8 font-mono text-[13px] text-blue-300" id="monitor-content"></div>
+                    <div class="bg-[#1e1e1e] h-full p-8 font-mono text-[13px] leading-relaxed text-blue-300" id="monitor-content"></div>
                 </div>
                 <div class="pc-tower flex flex-col items-center justify-center gap-10">
                     <div class="rgb-fan"></div>
@@ -92,7 +88,7 @@
             <p class="text-gray-400 uppercase tracking-widest text-sm font-bold">Introduction</p>
             <h2 class="text-7xl font-black mb-10">Overview.</h2>
             <p class="text-gray-400 text-xl leading-relaxed max-w-4xl">
-                I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions.
+                I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!
             </p>
         </div>
 
@@ -115,48 +111,27 @@
             <div class="stat-box group">
                 <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">50+</p>
                 <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Satisfied Clients</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
+                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6 text-left">
                     <p>• Successfully delivered high-performance web apps</p>
                     <p>• 100% project completion rate worldwide</p>
+                    <p>• Specialized in modern business solutions</p>
                 </div>
             </div>
             <div class="stat-box group">
                 <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">5+</p>
                 <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Years of Experience</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
+                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6 text-left">
                     <p>• Expertise in modern 3D UI/UX architectures</p>
                     <p>• Advanced proficiency in Full-Stack logic</p>
+                    <p>• Bridging the gap between design and complex code</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="max-w-7xl mx-auto px-10 md:px-24 py-20 pb-40">
-        <div class="intro-card text-left max-w-3xl mx-auto">
-            <p class="text-gray-400 uppercase tracking-widest text-sm font-bold">Get in touch</p>
-            <h2 class="text-6xl font-black mb-10 text-white">Contact.</h2>
-            
-            <form action="#" class="space-y-6">
-                <div>
-                    <label class="block text-white font-bold mb-2">Your Name</label>
-                    <input type="text" placeholder="What's your name?" class="glass-input text-white">
-                </div>
-                <div>
-                    <label class="block text-white font-bold mb-2">Your Email</label>
-                    <input type="email" placeholder="What's your email?" class="glass-input text-white">
-                </div>
-                <div>
-                    <label class="block text-white font-bold mb-2">Your Message</label>
-                    <textarea rows="5" placeholder="What do you want to say?" class="glass-input text-white"></textarea>
-                </div>
-                <button type="submit" class="bg-[#915eff] px-10 py-3 rounded-xl font-black text-white shadow-lg hover:scale-105 transition-all">Send</button>
-            </form>
-        </div>
-    </section>
-
     <script>
         // TYPEWRITER
-        const codeText = `/**\n * ALI PORTFOLIO\n * STATUS: Online\n */\n\nconst dev = {\n  name: "Ali",\n  specialty: "Full Stack",\n  exp: "5+ Years",\n  clients: 50\n};\n\nfunction init() {\n  console.log("Ready...");\n}\n\ninit();`;
+        const codeText = `/**\n * ALI PORTFOLIO\n * STATUS: Online\n */\n\nconst dev = {\n  name: "Ali",\n  specialty: "Full Stack",\n  exp: "5+ Years",\n  clients: 50,\n  location: "Multan"\n};\n\nfunction init() {\n  console.log("Welcome to my digital workspace...");\n}\n\ninit();`;
         const monitor = document.getElementById('monitor-content');
         let i = 0;
         function typeCode() {
@@ -176,15 +151,17 @@
         document.getElementById('canvas-container').appendChild(renderer.domElement);
 
         const globeGroup = new THREE.Group();
-        const globeMat = new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.2 });
-        const globe = new THREE.Mesh(new THREE.SphereGeometry(12, 32, 32), globeMat);
+        const globe = new THREE.Mesh(
+            new THREE.SphereGeometry(12, 32, 32),
+            new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.15 })
+        );
         globeGroup.add(globe);
         scene.add(globeGroup);
         globeGroup.position.set(20, 0, 0);
 
         const particlesGeo = new THREE.BufferGeometry();
         const posArray = new Float32Array(1500 * 3);
-        for(let i=0; i<4500; i++) posArray[i] = (Math.random() - 0.5) * 100;
+        for(let j=0; j<4500; j++) posArray[j] = (Math.random() - 0.5) * 100;
         particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
         const particlesMesh = new THREE.Points(particlesGeo, new THREE.PointsMaterial({ size: 0.05, color: 0x915eff }));
         scene.add(particlesMesh);
@@ -197,6 +174,12 @@
             renderer.render(scene, camera);
         }
         animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
     </script>
 </body>
 </html>
