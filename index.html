@@ -13,27 +13,27 @@
         .nav-blur { background: rgba(5, 8, 22, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
         .nav-link { transition: 0.4s ease; }
         .nav-link:hover { color: #fff !important; text-shadow: 0 0 15px rgba(145, 94, 255, 0.8); }
-        .live-btn { background: #915eff; transition: 0.4s ease; box-shadow: 0 0 15px rgba(145, 94, 255, 0.4); text-decoration: none; }
+        .live-btn { background: #915eff; transition: 0.4s ease; box-shadow: 0 0 15px rgba(145, 94, 255, 0.4); text-decoration: none; display: inline-block; }
         .live-btn:hover { box-shadow: 0 0 30px rgba(145, 94, 255, 0.8); transform: scale(1.05); cursor: pointer; }
-        .hero-live-btn { animation: pulse-glow 2s infinite; display: inline-block; }
+        .hero-live-btn { animation: pulse-glow 2s infinite; }
         @keyframes pulse-glow {
             0% { box-shadow: 0 0 0 0 rgba(145, 94, 255, 0.7); }
             70% { box-shadow: 0 0 0 20px rgba(145, 94, 255, 0); }
             100% { box-shadow: 0 0 0 0 rgba(145, 94, 255, 0); }
         }
-        .pc-tower { width: 170px; height: 320px; background: linear-gradient(165deg, #0a0a0c, #000); border: 1px solid rgba(145, 94, 255, 0.2); border-radius: 10px; box-shadow: 0 0 50px rgba(0, 0, 0, 0.8); transition: 0.3s; }
-        .rgb-fan { width: 65px; height: 65px; border-radius: 50%; border: 3px solid #915eff; box-shadow: 0 0 20px #915eff, inset 0 0 15px #915eff; animation: fan-glow 4s infinite alternate; transition: 0.5s; }
-        .pc-tower:hover .rgb-fan { transform: rotate(360deg); border-color: #fff; box-shadow: 0 0 30px #915eff; }
-        @keyframes fan-glow { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(90deg); } }
         .monitor-frame { width: 580px; height: 340px; background: #000; border: 12px solid #1a1a1a; border-radius: 15px; overflow: hidden; }
-        .cursor { display: inline-block; width: 8px; height: 18px; background: #915eff; margin-left: 4px; animation: blink 1s infinite; }
-        @keyframes blink { 50% { opacity: 0; } }
+        .pc-tower { width: 170px; height: 320px; background: linear-gradient(165deg, #0a0a0c, #000); border: 1px solid rgba(145, 94, 255, 0.2); border-radius: 10px; }
+        .rgb-fan { width: 65px; height: 65px; border-radius: 50%; border: 3px solid #915eff; box-shadow: 0 0 20px #915eff, inset 0 0 15px #915eff; animation: fan-glow 4s infinite alternate; }
+        @keyframes fan-glow { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(90deg); } }
         .intro-card { background: #151030; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 40px 20px; text-align: center; transition: 0.3s; box-shadow: 0 35px 120px -10px #211e35; }
         .intro-card:hover { transform: translateY(-10px); border-color: #915eff; }
-        .stat-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(145, 94, 255, 0.2); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); transition: 0.4s ease; }
-        .stat-box:hover { border-color: #915eff; background: rgba(145, 94, 255, 0.05); }
+        .testimonial-card { background: rgba(10, 5, 30, 0.6); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; padding: 30px; transition: 0.3s; }
+        .testimonial-card:hover { border-color: #915eff; background: rgba(145, 94, 255, 0.05); }
+        .stat-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(145, 94, 255, 0.2); padding: 40px; border-radius: 20px; backdrop-filter: blur(10px); }
         .purple-dot { width: 20px; height: 20px; background: #915eff; border-radius: 50%; box-shadow: 0 0 25px #915eff; }
         .purple-line { width: 4px; height: 160px; background: linear-gradient(#915eff, transparent); }
+        .cursor { display: inline-block; width: 8px; height: 18px; background: #915eff; margin-left: 4px; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
@@ -46,8 +46,8 @@
         <div class="flex items-center gap-8">
             <a href="index.html" class="nav-link text-white font-bold border-b-2 border-[#915eff]">Home</a>
             <a href="#about" class="nav-link text-gray-400 font-medium">About</a>
+            <a href="#testimonials" class="nav-link text-gray-400 font-medium">Testimonials</a>
             <a href="work.html" class="nav-link text-gray-400 font-medium">Work</a>
-            <a href="contact.html" class="nav-link text-gray-400 font-medium">Contact</a>
             <a href="golive.html" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs tracking-widest uppercase">Go Live</a>
         </div>
     </nav>
@@ -60,26 +60,23 @@
             </div>
             <div>
                 <h1 class="text-7xl md:text-9xl font-black tracking-tighter">Hi, I'm <span class="text-[#915eff]">Ali</span></h1>
-                <p class="text-2xl md:text-4xl text-gray-400 mt-6 max-w-3xl font-medium leading-tight">
-                    I develop 3D visuals, user interfaces <br> and web applications
-                </p>
+                <p class="text-2xl md:text-4xl text-gray-400 mt-6 max-w-3xl font-medium leading-tight">I develop 3D visuals, user interfaces <br> and web applications</p>
                 <div class="mt-12">
                     <a href="golive.html" class="live-btn hero-live-btn px-10 py-5 rounded-2xl text-white font-black text-lg tracking-widest uppercase">🚀 Start Project</a>
                 </div>
             </div>
         </div>
-
         <div class="mt-20 relative flex flex-col items-center">
-            <div class="flex items-end gap-12 relative z-10">
+            <div class="flex items-end gap-12 relative z-10 scale-90 md:scale-100">
                 <div class="monitor-frame">
                     <div class="bg-[#1e1e1e] h-full p-8 font-mono text-[13px] leading-relaxed text-blue-300" id="monitor-content"></div>
                 </div>
-                <div class="pc-tower flex flex-col items-center justify-center gap-10">
+                <div class="pc-tower hidden md:flex flex-col items-center justify-center gap-10">
                     <div class="rgb-fan"></div>
                     <div class="rgb-fan"></div>
                 </div>
             </div>
-            <div class="w-[920px] h-4 bg-[#0a0a0a] rounded shadow-2xl"></div>
+            <div class="w-[300px] md:w-[920px] h-4 bg-[#0a0a0a] rounded shadow-2xl"></div>
         </div>
     </section>
 
@@ -87,50 +84,78 @@
         <div class="mb-16">
             <p class="text-gray-400 uppercase tracking-widest text-sm font-bold">Introduction</p>
             <h2 class="text-7xl font-black mb-10">Overview.</h2>
-            <p class="text-gray-400 text-xl leading-relaxed max-w-4xl">
-                I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js. I'm a quick learner and collaborate closely with clients to create efficient, scalable, and user-friendly solutions that solve real-world problems. Let's work together to bring your ideas to life!
-            </p>
+            <p class="text-gray-400 text-xl leading-relaxed max-w-4xl">I'm a skilled software developer with experience in TypeScript and JavaScript, and expertise in frameworks like React, Node.js, and Three.js.</p>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-20">
             <div class="intro-card">
                 <img src="https://raw.githubusercontent.com/adrianhajdin/project_3D_developer_portfolio/main/src/assets/web.png" class="w-16 h-16 mx-auto mb-4" alt="web">
-                <h3 class="text-xl font-bold">Web Developer<br><span class="text-[#915eff] text-sm">(FULL STACK)</span></h3>
+                <h3 class="text-xl font-bold">Web Developer</h3>
             </div>
             <div class="intro-card">
                 <img src="https://raw.githubusercontent.com/adrianhajdin/project_3D_developer_portfolio/main/src/assets/mobile.png" class="w-16 h-16 mx-auto mb-4" alt="mobile">
-                <h3 class="text-xl font-bold">React Native<br>Developer</h3>
+                <h3 class="text-xl font-bold">React Native</h3>
             </div>
             <div class="intro-card">
                 <img src="https://raw.githubusercontent.com/adrianhajdin/project_3D_developer_portfolio/main/src/assets/backend.png" class="w-16 h-16 mx-auto mb-4" alt="backend">
-                <h3 class="text-xl font-bold">Backend<br>Developer</h3>
+                <h3 class="text-xl font-bold">Backend Dev</h3>
             </div>
         </div>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="stat-box group text-left">
-                <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">50+</p>
+            <div class="stat-box text-left">
+                <p class="text-6xl font-black text-white">50+</p>
                 <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Satisfied Clients</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
-                    <p>• Successfully delivered high-performance web apps</p>
-                    <p>• 100% project completion rate worldwide</p>
-                    <p>• Specialized in modern business solutions</p>
-                </div>
             </div>
-            <div class="stat-box group text-left">
-                <p class="text-6xl font-black text-white group-hover:text-[#915eff] transition-colors">5+</p>
+            <div class="stat-box text-left">
+                <p class="text-6xl font-black text-white">5+</p>
                 <p class="text-[#915eff] font-bold text-lg mt-2 uppercase tracking-widest">Years of Experience</p>
-                <div class="mt-6 space-y-3 text-gray-400 text-sm border-t border-white/10 pt-6">
-                    <p>• Expertise in modern 3D UI/UX architectures</p>
-                    <p>• Advanced proficiency in Full-Stack logic</p>
-                    <p>• Bridging the gap between design and complex code</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="max-w-7xl mx-auto px-10 md:px-24 py-20">
+        <div class="bg-[#100d25] rounded-3xl p-10 md:p-16">
+            <p class="text-gray-400 uppercase tracking-widest text-sm font-bold">What others say</p>
+            <h2 class="text-6xl font-black mb-16">Testimonials.</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card">
+                    <p class="text-5xl font-serif text-white/20 mb-[-20px]">"</p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8 italic">Ali is a rockstar! He turned our vision into a stunning 3D reality. Our platform's user engagement increased by 40% after the redesign.</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full border-2 border-[#915eff]" alt="Alex">
+                        <div>
+                            <p class="font-bold text-white">Alex Chen</p>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">CEO of InnovateX</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="text-5xl font-serif text-white/20 mb-[-20px]">"</p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8 italic">I've never met a developer who truly cares about their clients' success like Ali does. The code is clean, and the UI is breathtaking.</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-12 h-12 rounded-full border-2 border-[#915eff]" alt="Sarah">
+                        <div>
+                            <p class="font-bold text-white">Sarah Khan</p>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">Lead Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="text-5xl font-serif text-white/20 mb-[-20px]">"</p>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-8 italic">After Ali optimized our backend, our loading times dropped by 70%. Professional, fast, and highly skilled in modern tech stacks.</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" class="w-12 h-12 rounded-full border-2 border-[#915eff]" alt="James">
+                        <div>
+                            <p class="font-bold text-white">James Wilson</p>
+                            <p class="text-xs text-gray-500 uppercase tracking-widest">CTO of Bloom Digital</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        const codeText = "/**\n * ALI PORTFOLIO\n * STATUS: Online\n */\n\nconst dev = {\n  name: 'Ali',\n  specialty: 'Full Stack',\n  exp: '5+ Years',\n  clients: 50,\n  location: 'Multan'\n};\n\nfunction init() {\n  console.log('Welcome to my digital workspace...');\n}\n\ninit();";
+        const codeText = "/**\n * ALI PORTFOLIO\n * STATUS: Online\n */\n\nconst dev = {\n  name: 'Ali',\n  specialty: 'Full Stack',\n  exp: '5+ Years',\n  clients: 50\n};\n\nfunction init() {\n  console.log('Testimonials Loaded...');\n}\n\ninit();";
         const monitor = document.getElementById('monitor-content');
         let i = 0;
         function typeCode() {
@@ -147,28 +172,20 @@
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
         document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-        const globeGroup = new THREE.Group();
-        const globe = new THREE.Mesh(
-            new THREE.SphereGeometry(12, 32, 32),
-            new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.15 })
-        );
-        globeGroup.add(globe);
-        scene.add(globeGroup);
-        globeGroup.position.set(20, 0, 0);
-
-        const particlesGeo = new THREE.BufferGeometry();
+        const globe = new THREE.Mesh(new THREE.SphereGeometry(12, 32, 32), new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.15 }));
+        scene.add(globe);
+        globe.position.set(22, 5, -5);
+        const pGeo = new THREE.BufferGeometry();
         const posArray = new Float32Array(1500 * 3);
-        for(let j=0; j<4500; j++) posArray[j] = (Math.random() - 0.5) * 100;
-        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const particlesMesh = new THREE.Points(particlesGeo, new THREE.PointsMaterial({ size: 0.05, color: 0x915eff }));
-        scene.add(particlesMesh);
-
+        for(let j=0; j<4500; j++) posArray[j] = (Math.random() - 0.5) * 110;
+        pGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const pMesh = new THREE.Points(pGeo, new THREE.PointsMaterial({ size: 0.05, color: 0x915eff }));
+        scene.add(pMesh);
         camera.position.z = 40;
         function animate() {
             requestAnimationFrame(animate);
-            globeGroup.rotation.y += 0.003;
-            particlesMesh.rotation.y += 0.001;
+            globe.rotation.y += 0.003;
+            pMesh.rotation.y += 0.001;
             renderer.render(scene, camera);
         }
         animate();
