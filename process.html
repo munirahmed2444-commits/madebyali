@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process | Ali Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #050816; color: white; font-family: 'Poppins', sans-serif; margin: 0; overflow-x: hidden; }
+        #canvas-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        .nav-blur { background: rgba(5, 8, 22, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .nav-link { transition: 0.4s ease; }
+        .nav-link:hover { color: #fff !important; text-shadow: 0 0 15px rgba(145, 94, 255, 0.8); }
+        .live-btn { background: #915eff; transition: 0.4s ease; box-shadow: 0 0 15px rgba(145, 94, 255, 0.4); text-decoration: none; display: inline-block; }
+        .process-step { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(145, 94, 255, 0.2); padding: 50px; border-radius: 30px; backdrop-filter: blur(10px); transition: 0.4s ease; position: relative; overflow: hidden; }
+        .process-step:hover { border-color: #915eff; background: rgba(145, 94, 255, 0.05); transform: translateY(-5px); }
+        .step-number { font-size: 120px; font-weight: 900; position: absolute; right: -20px; top: -20px; color: rgba(145, 94, 255, 0.05); line-height: 1; }
+        .purple-glow { position: absolute; width: 100px; height: 100px; background: #915eff; filter: blur(80px); opacity: 0.2; top: 0; left: 0; }
+    </style>
+</head>
+<body>
+    <div id="canvas-container"></div>
+    <nav class="fixed top-0 w-full z-50 flex justify-between items-center px-6 md:px-12 py-5 nav-blur">
+        <div class="flex items-center gap-3">
+            <div class="bg-[#915eff] w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-lg text-xl">A</div>
+            <span class="text-xl font-bold text-white">Ali <span class="text-gray-500 font-light">| Process</span></span>
+        </div>
+        <div class="flex items-center gap-8">
+            <a href="index.html" class="nav-link text-gray-400 font-medium">Home</a>
+            <a href="process.html" class="nav-link text-white font-bold border-b-2 border-[#915eff]">Process</a>
+            <a href="work.html" class="nav-link text-gray-400 font-medium">Work</a>
+            <a href="golive.html" class="live-btn px-6 py-2 rounded-full text-white font-black text-xs uppercase tracking-widest">Go Live</a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-20 px-10 md:px-24 max-w-7xl mx-auto">
+        <p class="text-[#915eff] uppercase tracking-[0.3em] text-sm font-bold mb-4">Workflow</p>
+        <h1 class="text-7xl md:text-8xl font-black tracking-tighter mb-8">How I Bring <br><span class="text-[#915eff]">Ideas to Life.</span></h1>
+        <p class="text-gray-400 text-xl max-w-2xl leading-relaxed">
+            Premium quality takes focus. My average turnaround for high-end builds is <span class="text-white font-bold">5-10 business days</span>, ensuring every detail is perfect.
+        </p>
+    </section>
+
+    <section class="px-10 md:px-24 max-w-7xl mx-auto pb-40">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="process-step">
+                <div class="purple-glow"></div>
+                <div class="step-number">01</div>
+                <h3 class="text-3xl font-black mb-6">Discovery</h3>
+                <p class="text-gray-400 text-lg leading-relaxed">Deep dive into requirements and architecture mapping.</p>
+            </div>
+            <div class="process-step">
+                <div class="purple-glow"></div>
+                <div class="step-number">02</div>
+                <h3 class="text-3xl font-black mb-6">Visual Design</h3>
+                <p class="text-gray-400 text-lg leading-relaxed">Stunning 3D visuals and UI prototypes in Figma.</p>
+            </div>
+            <div class="process-step">
+                <div class="purple-glow"></div>
+                <div class="step-number">03</div>
+                <h3 class="text-3xl font-black mb-6">Development</h3>
+                <p class="text-gray-400 text-lg leading-relaxed">Building with React and Three.js for maximum performance.</p>
+            </div>
+            <div class="process-step">
+                <div class="purple-glow"></div>
+                <div class="step-number">04</div>
+                <h3 class="text-3xl font-black mb-6">Deployment</h3>
+                <p class="text-gray-400 text-lg leading-relaxed">After <span class="text-[#915eff] font-bold">5-10 days</span> of intense development, we launch your polished product.</p>
+            </div>
+        </div>
+        
+        <div class="mt-20 text-center">
+            <a href="golive.html" class="live-btn px-12 py-6 rounded-2xl text-white font-black text-xl uppercase tracking-widest">Start My Project</a>
+        </div>
+    </section>
+
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('canvas-container').appendChild(renderer.domElement);
+        const globe = new THREE.Mesh(new THREE.SphereGeometry(15, 32, 32), new THREE.MeshBasicMaterial({ color: 0x915eff, wireframe: true, transparent: true, opacity: 0.1 }));
+        scene.add(globe);
+        globe.position.set(30, 0, -10);
+        camera.position.z = 50;
+        function animate() {
+            requestAnimationFrame(animate);
+            globe.rotation.y += 0.002;
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>
